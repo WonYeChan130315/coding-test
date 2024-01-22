@@ -1,0 +1,14 @@
+/Users/won-yechan/c#_vscode/bin/Debug/net8.0/c#_vscode
+/Users/won-yechan/c#_vscode/bin/Debug/net8.0/c#_vscode.deps.json
+/Users/won-yechan/c#_vscode/bin/Debug/net8.0/c#_vscode.runtimeconfig.json
+/Users/won-yechan/c#_vscode/bin/Debug/net8.0/c#_vscode.dll
+/Users/won-yechan/c#_vscode/bin/Debug/net8.0/c#_vscode.pdb
+/Users/won-yechan/c#_vscode/obj/Debug/net8.0/c#_vscode.GeneratedMSBuildEditorConfig.editorconfig
+/Users/won-yechan/c#_vscode/obj/Debug/net8.0/c#_vscode.AssemblyInfoInputs.cache
+/Users/won-yechan/c#_vscode/obj/Debug/net8.0/c#_vscode.AssemblyInfo.cs
+/Users/won-yechan/c#_vscode/obj/Debug/net8.0/c#_vscode.csproj.CoreCompileInputs.cache
+/Users/won-yechan/c#_vscode/obj/Debug/net8.0/c#_vscode.dll
+/Users/won-yechan/c#_vscode/obj/Debug/net8.0/refint/c#_vscode.dll
+/Users/won-yechan/c#_vscode/obj/Debug/net8.0/c#_vscode.pdb
+/Users/won-yechan/c#_vscode/obj/Debug/net8.0/c#_vscode.genruntimeconfig.cache
+/Users/won-yechan/c#_vscode/obj/Debug/net8.0/ref/c#_vscode.dll
