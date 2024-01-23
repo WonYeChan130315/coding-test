@@ -12,3 +12,4 @@
 /Users/won-yechan/c#_vscode/obj/Debug/net8.0/c#_vscode.pdb
 /Users/won-yechan/c#_vscode/obj/Debug/net8.0/c#_vscode.genruntimeconfig.cache
 /Users/won-yechan/c#_vscode/obj/Debug/net8.0/ref/c#_vscode.dll
+/Users/won-yechan/c#_vscode/obj/Debug/net8.0/c#_vscode.sourcelink.json
