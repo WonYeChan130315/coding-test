@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/won-yechan/c#_vscode/c#_vscode.csproj": {}
+    "/Users/won-yechan/coding-test/c#_vscode.csproj": {}
   },
   "projects": {
-    "/Users/won-yechan/c#_vscode/c#_vscode.csproj": {
+    "/Users/won-yechan/coding-test/c#_vscode.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/won-yechan/c#_vscode/c#_vscode.csproj",
+        "projectUniqueName": "/Users/won-yechan/coding-test/c#_vscode.csproj",
         "projectName": "c#_vscode",
-        "projectPath": "/Users/won-yechan/c#_vscode/c#_vscode.csproj",
+        "projectPath": "/Users/won-yechan/coding-test/c#_vscode.csproj",
         "packagesPath": "/Users/won-yechan/.nuget/packages/",
-        "outputPath": "/Users/won-yechan/c#_vscode/obj/",
+        "outputPath": "/Users/won-yechan/coding-test/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/won-yechan/.nuget/NuGet/NuGet.Config"

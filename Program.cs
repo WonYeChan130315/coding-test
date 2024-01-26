@@ -1,35 +1,31 @@
 ﻿/* 
-두 정수 사이의 합
+음양 더하기
 
 문제설명:
-두 정수 a, b가 주어졌을 때 a와 b 사이에 속한 모든 정수의 합을 리턴하는 함수, solution을 완성하세요.
-예를 들어 a = 3, b = 5인 경우, 3 + 4 + 5 = 12이므로 12를 리턴합니다.
+어떤 정수들이 있습니다. 
+이 정수들의 절댓값을 차례대로 담은 정수 배열 absolutes와 이 정수들의 부호를 차례대로 담은 불리언 배열 signs가 매개변수로 주어집니다.
+실제 정수들의 합을 구하여 return 하도록 solution 함수를 완성해주세요.
 
 제한 조건:
-> a와 b가 같은 경우는 둘 중 아무 수나 리턴하세요.
-> a와 b는 -10,000,000 이상 10,000,000 이하인 정수입니다.
-> a와 b의 대소관계는 정해져있지 않습니다.
+>absolutes의 길이는 1 이상 1,000 이하입니다.
+>absolutes의 모든 수는 각각 1 이상 1,000 이하입니다.
+>signs의 길이는 absolutes의 길이와 같습니다.
+>signs[i] 가 참이면 absolutes[i] 의 실제 정수가 양수임을, 그렇지 않으면 음수임을 의미합니다.
 */
 
-// 여기선 오류 안나는데 programmers에선 using System; 해야함
 using System;
 
 public class Solution {
-	public static void Main() {
-		Console.WriteLine(solution(3, 5));
+	static void Main() {
+		Console.WriteLine(solution([4,7,12], [true, false, true]));
 	}
 
-	public static long solution(int a, int b) {
-		long answer = 0;
-
-		if (a != b) {
-			for(int i = Math.Min(a, b); i < MathF.Max(a, b) + 1; i++) {
-				answer += i;
-			}
-		} else {
-			answer = a;
+    public static int solution(int[] absolutes, bool[] signs) {
+        int answer = 0;
+		for(int i = 0; i < absolutes.Length; i++) {
+			answer += absolutes[i] * (signs[i] ? 1 : -1);
 		}
 
-		return answer;
-	}
+        return answer;
+    }
 }

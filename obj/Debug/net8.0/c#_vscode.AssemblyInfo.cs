@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("c#_vscode")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+42ed8802dc1e0aa524030341d48da0b633016f68")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1df466bda53cd569ca392416c6687a128d3e439e")]
 [assembly: System.Reflection.AssemblyProductAttribute("c#_vscode")]
 [assembly: System.Reflection.AssemblyTitleAttribute("c#_vscode")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
