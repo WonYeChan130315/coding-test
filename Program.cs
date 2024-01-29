@@ -1,31 +1,43 @@
 ﻿/* 
-음양 더하기
+콜라츠 추측
 
-문제설명:
-어떤 정수들이 있습니다. 
-이 정수들의 절댓값을 차례대로 담은 정수 배열 absolutes와 이 정수들의 부호를 차례대로 담은 불리언 배열 signs가 매개변수로 주어집니다.
-실제 정수들의 합을 구하여 return 하도록 solution 함수를 완성해주세요.
+문제:
+1937년 Collatz란 사람에 의해 제기된 이 추측은,
+주어진 수가 1이 될 때까지 다음 작업을 반복하면, 모든 수를 1로 만들 수 있다는 추측입니다. 작업은 다음과 같습니다:
 
-제한 조건:
->absolutes의 길이는 1 이상 1,000 이하입니다.
->absolutes의 모든 수는 각각 1 이상 1,000 이하입니다.
->signs의 길이는 absolutes의 길이와 같습니다.
->signs[i] 가 참이면 absolutes[i] 의 실제 정수가 양수임을, 그렇지 않으면 음수임을 의미합니다.
+1-1. 입력된 수가 짝수라면 2로 나눕니다. 
+1-2. 입력된 수가 홀수라면 3을 곱하고 1을 더합니다. 
+2. 결과로 나온 수에 같은 작업을 1이 될 때까지 반복합니다. 
+
+예를 들어, 주어진 수가 6이라면 6 → 3 → 10 → 5 → 16 → 8 → 4 → 2 → 1 이 되어 총 8번 만에 1이 됩니다. 
+위 작업을 몇 번이나 반복해야 하는지 반환하는 함수, solution을 완성해 주세요. 
+단, 주어진 수가 1인 경우에는 0을, 작업을 500번 반복할 때까지 1이 되지 않는다면 –1을 반환해 주세요.
+
+제한 사항:
+>입력된 수, num은 1 이상 8,000,000 미만인 정수입니다.
 */
 
 using System;
 
 public class Solution {
-	static void Main() {
-		Console.WriteLine(solution([4,7,12], [true, false, true]));
-	}
+    public int solution(int num) {
+        // int answer = 0;
+        int count = 0; 
+        
+        long n = num;
 
-    public static int solution(int[] absolutes, bool[] signs) {
-        int answer = 0;
-		for(int i = 0; i < absolutes.Length; i++) {
-			answer += absolutes[i] * (signs[i] ? 1 : -1);
-		}
+        while (n != 1) {
+            if(n != 1 && count >= 500 ) {
+                return -1;
+            } else if(n % 2  == 0) {
+                n = n / 2;
+            } else {
+                n = n *3 +1;
+            }
 
-        return answer;
+            count++;
+        }
+        
+        return count;
     }
 }
