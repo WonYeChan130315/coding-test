@@ -16,11 +16,6 @@ using System;
 using System.Collections.Generic;
 
 public class Solution {
-    static void Main() {
-        var a = solution([5, 9, 7, 10],	5);
-        foreach(int b in a) Console.WriteLine(b);
-    }
-
     public static int[] solution(int[] arr, int divisor) {
         List<int> list = new List<int>();
 
@@ -33,6 +28,6 @@ public class Solution {
         int[] answer = list.ToArray();
         Array.Sort(answer);
 
-        return answer;
+        return answer.Length == 0 ? [-1] : answer;
     }
 }
