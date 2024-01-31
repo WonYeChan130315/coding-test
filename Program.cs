@@ -16,6 +16,10 @@ using System;
 using System.Collections.Generic;
 
 public class Solution {
+    static void Main() {
+        foreach(int i in solution([3,2,6], 10)) Console.WriteLine(i);
+    }
+
     public static int[] solution(int[] arr, int divisor) {
         List<int> list = new List<int>();
 
@@ -28,6 +32,7 @@ public class Solution {
         int[] answer = list.ToArray();
         Array.Sort(answer);
 
-        return answer.Length == 0 ? [-1] : answer;
+        // 아니 여기선 [-1] 되는데 programmers에선 왜 new int[]{-1}로 해야함?
+        return answer.Length == 0 ? new int[]{-1} : answer;
     }
 }
