@@ -1,38 +1,33 @@
 ﻿/* 
-나누어 떨어지는 숫자 배열
+없는 숫자 더하기
 
 문제 설명:
-array의 각 element 중 divisor로 나누어 떨어지는 값을 오름차순으로 정렬한 배열을 반환하는 함수, solution을 작성해주세요.
-divisor로 나누어 떨어지는 element가 하나도 없다면 배열에 -1을 담아 반환하세요.
+0부터 9까지의 숫자 중 일부가 들어있는 정수 배열 numbers가 매개변수로 주어집니다. 
+numbers에서 찾을 수 없는 0부터 9까지의 숫자를 모두 찾아 더한 수를 return 하도록 solution 함수를 완성해주세요.
 
 제한 사항:
->arr은 자연수를 담은 배열입니다.
->정수 i, j에 대해 i ≠ j 이면 arr[i] ≠ arr[j] 입니다.
->divisor는 자연수입니다.
->array는 길이 1 이상인 배열입니다.
+>1 ≤ numbers의 길이 ≤ 9
+>0 ≤ numbers의 모든 원소 ≤ 9
+>numbers의 모든 원소는 서로 다릅니다.
 */
 
 using System;
-using System.Collections.Generic;
 
 public class Solution {
-    static void Main() {
-        foreach(int i in solution([3,2,6], 10)) Console.WriteLine(i);
-    }
-
-    public static int[] solution(int[] arr, int divisor) {
-        List<int> list = new List<int>();
-
-        foreach(int i in arr) {
-            if(i % divisor == 0) {
-                list.Add(i);
+    public int solution(int[] numbers) {
+        bool[] found = new bool[10];
+        
+        foreach (int num in numbers) {
+            found[num] = true;
+        }
+        
+        int sum = 0;
+        for (int i = 0; i < 10; i++) {
+            if (!found[i]) {
+                sum += i;
             }
         }
-
-        int[] answer = list.ToArray();
-        Array.Sort(answer);
-
-        // 아니 여기선 [-1] 되는데 programmers에선 왜 new int[]{-1}로 해야함?
-        return answer.Length == 0 ? new int[]{-1} : answer;
+        
+        return sum;
     }
 }
