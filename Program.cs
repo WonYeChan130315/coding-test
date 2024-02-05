@@ -1,22 +1,27 @@
 ﻿/* 
-핸드폰 번호 가리기
+제일 작은 수 제거하기
 
 문제 설명:
-프로그래머스 모바일은 개인정보 보호를 위해 고지서를 보낼 때 고객들의 전화번호의 일부를 가립니다.
-전화번호가 문자열 phone_number로 주어졌을 때, 전화번호의 뒷 4자리를 제외한 나머지 숫자를 전부 *으로 가린 문자열을 리턴하는 함수, solution을 완성해주세요.
+정수를 저장한 배열, arr 에서 가장 작은 수를 제거한 배열을 리턴하는 함수, solution을 완성해주세요. 
+단, 리턴하려는 배열이 빈 배열인 경우엔 배열에 -1을 채워 리턴하세요. 예를들어 arr이 [4,3,2,1]인 경우는 [4,3,2]를 리턴 하고, [10]면 [-1]을 리턴 합니다.
 
 제한 사항:
->phone_number는 길이 4 이상, 20이하인 문자열입니다.
+>arr은 길이 1 이상인 배열입니다.
+>인덱스 i, j에 대해 i ≠ j이면 arr[i] ≠ arr[j] 입니다.
 */
 
+using System.Collections.Generic;
+
 public class Solution {
-    public string solution(string phone_number) {
-        string answer = "";
-        for(int i = 0; i < phone_number.Length - 4; i++) {
-            answer += "*";
+    public int[] solution(int[] arr) {
+        List<int> answer = arr.ToList();
+
+        answer.Remove(arr.Min());
+
+        if(answer.Count < 1) {
+            answer.Add(-1);
         }
 
-        answer += phone_number.Substring(phone_number.Length - 4, 4);
-        return answer;
+        return answer.ToArray();
     }
 }
