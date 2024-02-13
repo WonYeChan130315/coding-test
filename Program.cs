@@ -1,24 +1,37 @@
 ﻿/* 
-수박수박수박수박수박수?
+약수의 개수와 덧셈
 
 문제 설명:
-길이가 n이고, "수박수박수박수...."와 같은 패턴을 유지하는 문자열을 리턴하는 함수, solution을 완성하세요. 
-예를들어 n이 4이면 "수박수박"을 리턴하고 3이라면 "수박수"를 리턴하면 됩니다.
+두 정수 left와 right가 매개변수로 주어집니다.
+left부터 right까지의 모든 수들 중에서, 약수의 개수가 짝수인 수는 더하고,
+약수의 개수가 홀수인 수는 뺀 수를 return 하도록 solution 함수를 완성해주세요.
 
 제한 사항:
->n은 길이 10,000이하인 자연수입니다.
+> 1 ≤ left ≤ right ≤ 1,000
 */
 
-public class Solution {
-    public string solution(int n) {
-        string answer = "";
-        bool siu = true;
+using System;
 
-        for (int i = 0; i < n; i++) {
-            answer += siu ? "수" : "박";
-            siu = !siu;
+public class Solution {
+    public int solution(int left, int right) {
+        int answer = 0;
+
+        for (int i = left; i <= right; i++) {
+            answer += divisor(i) % 2 == 0 ? i : -i;
         }
 
         return answer;
+    }
+
+    public int divisor(int num) {
+        int count = 0;
+
+        for (int i = 1; i <= num; i++) {
+            if (num % i == 0) {
+                count++;
+            }
+        }
+
+        return count;
     }
 }
