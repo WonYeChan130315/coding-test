@@ -1,37 +1,27 @@
 ﻿/* 
-직사각형 별찍기
+최대공약수와 최소공배수
 
 문제 설명:
-이 문제에는 표준 입력으로 두 개의 정수 n과 m이 주어집니다.
-별(*) 문자를 이용해 가로의 길이가 n, 세로의 길이가 m인 직사각형 형태를 출력해보세요.
+두 수를 입력받아 두 수의 최대공약수와 최소공배수를 반환하는 함수, solution을 완성해 보세요. 
+배열의 맨 앞에 최대공약수, 그다음 최소공배수를 넣어 반환하면 됩니다. 
+예를 들어 두 수 3, 12의 최대공약수는 3, 최소공배수는 12이므로 solution(3, 12)는 [3, 12]를 반환해야 합니다.
 
 제한 사항:
-> n과 m은 각각 1000 이하인 자연수입니다.
+> 두 수는 1이상 1000000이하의 자연수입니다.
 */
 
-using System;
+public class Solution {
+    public int[] solution(int n, int m) {
+        int[] answer = new int[2];
 
-public class Example
-{
-    public static void Main()
-    {
-        String[] s;
+        answer[0] = calc(n, m);
+        answer[1] = n * m / calc(n, m);
 
-        Console.Clear();
-        s = Console.ReadLine().Split(' ');
+        return answer;
+    }
 
-        int a = Int32.Parse(s[0]);
-        int b = Int32.Parse(s[1]);
-
-        string answer = "";
-        
-        for (int i = 0; i < b; i++) {
-            for (int j = 0; j < a; j++) {
-                answer += "*";
-            }
-            answer += "\n";
-        }
-        
-        Console.WriteLine(answer);
+    public int calc(int n, int m) {
+        if (m == 0) return n;
+        else return calc(m, n % m);
     }
 }
