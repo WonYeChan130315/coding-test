@@ -11,7 +11,20 @@
 
 public class Solution {
     public string solution(string s) {
-        string answer = "";
-        return answer;
+        string[] str_nums = s.Split(' ');
+
+        int max = int.MinValue;
+        int min = int.MaxValue;
+
+        foreach(string num in str_nums) {
+            int n = int.Parse(num);
+            
+            if(max < n) 
+                max = n;
+            if(min > n)
+                min = n;
+        }
+
+        return max + "" + min;
     }
 }
