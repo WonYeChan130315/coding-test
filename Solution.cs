@@ -2,38 +2,61 @@
 이진 변환 반복하기
 
 문제 설명:
-0과 1로 이루어진 어떤 문자열 x에 대한 이진 변환을 다음과 같이 정의합니다.
+자연수 n이 주어졌을 때, n의 다음 큰 숫자는 다음과 같이 정의 합니다.
 
-x의 모든 0을 제거합니다.
-x의 길이를 c라고 하면, x를 "c를 2진법으로 표현한 문자열"로 바꿉니다.
-예를 들어, x = "0111010"이라면, x에 이진 변환을 가하면 x = "0111010" -> "1111" -> "100" 이 됩니다.
+조건 1. n의 다음 큰 숫자는 n보다 큰 자연수 입니다.
+조건 2. n의 다음 큰 숫자와 n은 2진수로 변환했을 때 1의 갯수가 같습니다.
+조건 3. n의 다음 큰 숫자는 조건 1, 2를 만족하는 수 중 가장 작은 수 입니다.
+예를 들어서 78(1001110)의 다음 큰 숫자는 83(1010011)입니다.
 
-0과 1로 이루어진 문자열 s가 매개변수로 주어집니다. s가 "1"이 될 때까지 계속해서 s에 이진 변환을 가했을 때, 이진 변환의 횟수와 변환 과정에서 제거된 모든 0의 개수를 각각 배열에 담아 return 하도록 solution 함수를 완성해주세요.
+자연수 n이 매개변수로 주어질 때, n의 다음 큰 숫자를 return 하는 solution 함수를 완성해주세요.
 
 제한 사항:
-> s의 길이는 1 이상 150,000 이하입니다.
-> s에는 '1'이 최소 하나 이상 포함되어 있습니다.
+> n은 1,000,000 이하의 자연수 입니다.
 */
 
 using System;
 
-public class Solution {
-    public int[] solution(string s) {
-        int[] answer = new int[2];
+class Solution 
+{
+    public int solution(int n) 
+    {
+        int answer = n + 1;
         
-        while (s != "1") {
-            int countZero = 0;
-            for (int i = 0; i < s.Length; i++) {
-                if (s[i] == '0') {
-                    countZero++;
-                }
-            }
-            int length = s.Length - countZero;
-            s = Convert.ToString(length, 2);
-            answer[0]++;
-            answer[1] += countZero;
+        while(!SameCountOne(ToBinary(n), ToBinary(answer))) {
+            answer++;
         }
-        
+
         return answer;
+    }
+
+    public bool SameCountOne(string a, string b) {
+        int countA = 0;
+        int countB = 0;
+
+        foreach(char w in a) {
+            if(w == '1') {
+                countA++;
+            }
+        }
+
+        foreach(char w in b) {
+            if(w == '1') {
+                countB++;
+            }
+        }
+
+        return countA == countB;
+    }
+
+    public string ToBinary(int decimalNum) {
+        string binary = "";
+
+        while(decimalNum >= 1) {
+            binary += decimalNum % 2;
+            decimalNum /= 2;
+        }
+
+        return binary;
     }
 }
