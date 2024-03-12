@@ -1,62 +1,44 @@
 ﻿/* 
-이진 변환 반복하기
+카펫
 
 문제 설명:
-자연수 n이 주어졌을 때, n의 다음 큰 숫자는 다음과 같이 정의 합니다.
+Leo는 카펫을 사러 갔다가 아래 그림과 같이 중앙에는 노란색으로 칠해져 있고 테두리 1줄은 갈색으로 칠해져 있는 격자 모양 카펫을 봤습니다.
 
-조건 1. n의 다음 큰 숫자는 n보다 큰 자연수 입니다.
-조건 2. n의 다음 큰 숫자와 n은 2진수로 변환했을 때 1의 갯수가 같습니다.
-조건 3. n의 다음 큰 숫자는 조건 1, 2를 만족하는 수 중 가장 작은 수 입니다.
-예를 들어서 78(1001110)의 다음 큰 숫자는 83(1010011)입니다.
+노 노 노 노
+노 갈 갈 노
+노 노 노 노
 
-자연수 n이 매개변수로 주어질 때, n의 다음 큰 숫자를 return 하는 solution 함수를 완성해주세요.
+Leo는 집으로 돌아와서 아까 본 카펫의 노란색과 갈색으로 색칠된 격자의 개수는 기억했지만, 전체 카펫의 크기는 기억하지 못했습니다.
+
+Leo가 본 카펫에서 갈색 격자의 수 brown, 
+노란색 격자의 수 yellow가 매개변수로 주어질 때 카펫의 가로, 세로 크기를 순서대로 배열에 담아 return 하도록 solution 함수를 작성해주세요.
 
 제한 사항:
-> n은 1,000,000 이하의 자연수 입니다.
+> 갈색 격자의 수 brown은 8 이상 5,000 이하인 자연수입니다.
+> 노란색 격자의 수 yellow는 1 이상 2,000,000 이하인 자연수입니다.
+> 카펫의 가로 길이는 세로 길이와 같거나, 세로 길이보다 깁니다.
 */
 
 using System;
 
-class Solution 
-{
-    public int solution(int n) 
-    {
-        int answer = n + 1;
-        
-        while(!SameCountOne(ToBinary(n), ToBinary(answer))) {
-            answer++;
+public class Solution {
+    public int[] solution(int brown, int yellow) {
+        int total = brown + yellow;
+        int[] answer = new int[2];
+
+        for (int w = 3; w <= total / 3; w++) {
+            if (total % w == 0) {
+                int h = total / w;
+                int border = (w - 2) * (h - 2);
+
+                if (border == yellow) {
+                    answer[0] = h;
+                    answer[1] = w;
+                    break;
+                }
+            }
         }
 
         return answer;
-    }
-
-    public bool SameCountOne(string a, string b) {
-        int countA = 0;
-        int countB = 0;
-
-        foreach(char w in a) {
-            if(w == '1') {
-                countA++;
-            }
-        }
-
-        foreach(char w in b) {
-            if(w == '1') {
-                countB++;
-            }
-        }
-
-        return countA == countB;
-    }
-
-    public string ToBinary(int decimalNum) {
-        string binary = "";
-
-        while(decimalNum >= 1) {
-            binary += decimalNum % 2;
-            decimalNum /= 2;
-        }
-
-        return binary;
     }
 }
